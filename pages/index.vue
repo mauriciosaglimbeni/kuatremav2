@@ -36,7 +36,7 @@
                 :src="product.img2"
                 reverse-transition="fade-transition"
                 transition="fade-transition"
-                style="cursor: pointer;"
+                style="cursor: pointer; width: auto; height: auto"
               ></v-carousel-item
             ></nuxt-link>
           </v-carousel>
@@ -63,7 +63,7 @@
                 :src="product.img1"
                 reverse-transition="fade-transition"
                 transition="fade-transition"
-                style="cursor: pointer;"
+                style="cursor: pointer; width: auto; height: auto"
               ></v-carousel-item>
             </nuxt-link>
           </v-carousel>
