@@ -1,0 +1,33 @@
+{
+  "entry": "server.js",
+  "files": {
+    "components/language-input.js": "components/language-input.js",
+    "components/player.js": "components/player.js",
+    "components/product-card.js": "components/product-card.js",
+    "components/product-tabs.js": "components/product-tabs.js",
+    "pages/accesories.js": "pages/accesories.js",
+    "pages/index.js": "pages/index.js",
+    "pages/offers.js": "pages/offers.js",
+    "pages/products/_id/index.js": "pages/products/_id/index.js",
+    "pages/products/index.js": "pages/products/index.js",
+    "pages/releases.js": "pages/releases.js",
+    "pages/sweats.js": "pages/sweats.js",
+    "pages/tees.js": "pages/tees.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "components/language-input.js": "components/language-input.js.map",
+    "components/player.js": "components/player.js.map",
+    "components/product-card.js": "components/product-card.js.map",
+    "components/product-tabs.js": "components/product-tabs.js.map",
+    "pages/accesories.js": "pages/accesories.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/offers.js": "pages/offers.js.map",
+    "pages/products/_id/index.js": "pages/products/_id/index.js.map",
+    "pages/products/index.js": "pages/products/index.js.map",
+    "pages/releases.js": "pages/releases.js.map",
+    "pages/sweats.js": "pages/sweats.js.map",
+    "pages/tees.js": "pages/tees.js.map",
+    "server.js": "server.js.map"
+  }
+}

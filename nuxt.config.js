@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
-import en from './locales/en.json'
-import es from './locales/es.json'
+import en from './src/locales/en.json'
+import es from './src/locales/es.json'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -27,6 +27,10 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
+  
+  // set src folder as main folder
+  srcDir: 'src',
+  buildDir: 'functions/.nuxt',
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -34,6 +38,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
 
 
   ],
@@ -113,10 +118,11 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-
+    extractCSS: true,
   },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [
     '~/api/index.js'
-  ]
+  ],
+
 }
