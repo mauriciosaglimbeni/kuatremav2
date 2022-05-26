@@ -45,7 +45,7 @@ export default {
   // fetch data from api
   async fetch() {
     this.productsLoading = true
-    const data = await this.$axios.$get('api/products')
+    const data = await this.$axios.$get('https://kuatrema.herokuapp.com/api/products')
     this.products = data
     this.productsLoading = false
   },

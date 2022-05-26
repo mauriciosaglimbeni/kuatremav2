@@ -97,7 +97,7 @@ export default {
   },
   // fetch offers and releases from api
   async fetch() {
-    const releases = await this.$axios.$get('api/releases')
+    const releases = await this.$axios.$get('https://kuatrema.herokuapp.com/api/releases')
     this.releases = releases
 
     const offers = await this.$axios.$get('api/offers')

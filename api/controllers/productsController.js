@@ -1,7 +1,7 @@
 // const validator = require('express-validator');
 const Product = require('../models/Product')
 
-// Get all productsAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// Get all products
 module.exports.list = function (req, res, next) {
   Product.find(
     {},
