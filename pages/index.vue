@@ -30,7 +30,7 @@
             <nuxt-link
               v-for="product in releases"
               :key="product.id"
-              :to="localePath('/products/' + product.name)"
+              :to="localePath('/products/' + product.id)"
             >
               <v-carousel-item
                 :src="product.img2"
@@ -97,10 +97,10 @@ export default {
   },
   // fetch offers and releases from api
   async fetch() {
-    const releases = await this.$axios.$get('https://kuatrema.herokuapp.com/api/releases')
+    const releases = await this.$axios.$get(`${process.env.apiUrl}/releases`)
     this.releases = releases
 
-    const offers = await this.$axios.$get('api/offers')
+    const offers = await this.$axios.$get(`${process.env.apiUrl}/offers`)
     this.offers = offers
   },
 }

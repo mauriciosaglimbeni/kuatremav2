@@ -115,8 +115,9 @@ export default {
   build: {
 
   },
+  //  get env variables for api url
   env: {
-    apiUrl: process.env.API_URL 
+    apiUrl: process.env.API_URL || 'https://kuatrema.herokuapp.com/api'
   },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [

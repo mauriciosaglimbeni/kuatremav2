@@ -47,7 +47,7 @@ export default {
   // fetch data from api
 
 async asyncData(context){
-    const {data} = await context.$axios.get('/api/products/' + context.route.params.id)
+    const {data} = await context.$axios.get(`${process.env.apiUrl}/products` + context.route.params.id)
     return {
       product : data
     }
