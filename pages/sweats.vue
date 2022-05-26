@@ -45,7 +45,7 @@ export default {
   // fetch data from api
   async fetch() {
     this.productsLoading = true
-    const data = await this.$axios.$get(`${process.env.API_URL}/sweats`)
+    const data = await this.$axios.$get(`${process.env.apiUrl}/sweats`)
     this.products = data
     this.productsLoading = false
   },

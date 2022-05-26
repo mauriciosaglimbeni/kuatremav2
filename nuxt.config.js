@@ -115,6 +115,9 @@ export default {
   build: {
 
   },
+  env: {
+    apiUrl: process.env.API_URL 
+  },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [
     '~/api/index.js'
