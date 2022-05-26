@@ -117,7 +117,7 @@ export default {
   },
   //  get env variables for api url
   env: {
-    apiUrl: process.env.API_URL || 'http://localhost:3000'
+    apiUrl: process.env.API_URL || `api`
   },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [

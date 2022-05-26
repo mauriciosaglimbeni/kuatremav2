@@ -30,7 +30,7 @@
             <nuxt-link
               v-for="product in releases"
               :key="product.id"
-              :to="localePath('/products/' + product.id)"
+              :to="localePath('/products/' + product._id)"
             >
               <v-carousel-item
                 :src="product.img2"
