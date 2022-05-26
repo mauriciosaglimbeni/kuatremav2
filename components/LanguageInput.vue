@@ -11,7 +11,7 @@
         </option> 
     </select>
 
-    <i v-if="locale.name === 'EN'" class="sl-flag flag-usa"></i>
+    <i v-if="!spain" class="sl-flag flag-usa"></i>
     <i v-else class="sl-flag flag-spain"></i>
   </div>
 </template>
@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      spain: true,
+      spain: false,
     }
   },
   computed: {
