@@ -66,12 +66,12 @@ export default {
   i18n: {
     locales: [
       {
-        code: 'en',
-        name: 'EN'
-      },
-      {
         code: 'es',
         name: 'ES'
+      },
+      {
+        code: 'en',
+        name: 'EN'
       }
     ],
     defaultLocale: 'es',
@@ -117,7 +117,7 @@ export default {
   },
   //  get env variables for api url
   env: {
-    apiUrl: process.env.API_URL || 'https://kuatrema.herokuapp.com/api'
+    apiUrl: process.env.API_URL || 'http://localhost:3000'
   },
   // Server middleware to connect to our express Rest Api
   serverMiddleware: [

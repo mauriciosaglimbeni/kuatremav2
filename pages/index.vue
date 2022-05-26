@@ -57,7 +57,7 @@
             <nuxt-link
               v-for="product in offers"
               :key="product.id"
-              :to="localePath('/products/' + product.name)"
+              :to="localePath('/products/' + product.id)"
             >
               <v-carousel-item
                 :src="product.img1"
