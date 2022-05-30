@@ -44,14 +44,16 @@
           @mouseover="hovered = true"
           @mouseout="hovered = false"
         >
-          <div class="button-holder">
-            <button v-for="size in sizes" :key="size" class="size-button">
-              {{ size }}
-            </button>
-          </div>
-          <div class="button-holder">
-            <button class="add-button">{{ $t('addToCart') }}</button>
-          </div>
+          <form>
+            <div class="button-holder">
+              <button v-for="size in sizes" :key="size" class="size-button" @click="selectedSize = size">
+                {{ size }} ,{{selectedSize}}
+              </button>
+            </div>
+            <div class="button-holder">
+              <button class="add-button">{{ $t('addToCart') }}</button>
+            </div>
+          </form>
         </v-overlay>
       </v-fade-transition>
     </v-card>
@@ -75,6 +77,8 @@ export default {
   data() {
     return {
       hovered: false,
+      // size picker
+      selectedSize: String,
     }
   },
 }

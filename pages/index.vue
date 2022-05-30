@@ -102,7 +102,7 @@ export default {
 
     const offers = await this.$axios.$get(`${process.env.apiUrl}/offers`)
     this.offers = offers
-  },
+  }
 }
 </script>
 
