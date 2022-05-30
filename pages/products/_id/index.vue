@@ -20,7 +20,11 @@
     </div>
     <div class="information">
       <!-- go to products link -->
-      <nuxt-link :to="localePath('/products')" style="font-size:14px; color:gray; cursor: pointer">{{$t('return')}} </nuxt-link>
+      <nuxt-link
+        :to="localePath('/products')"
+        style="font-size: 14px; color: gray; cursor: pointer"
+        >{{ $t('return') }}
+      </nuxt-link>
       <h1 class="product-name">{{ product.productName }}</h1>
       <h2 class="artist-name">by {{ product.artist }}</h2>
       <!-- Checks if the product is in offer and prints someting -->
@@ -29,13 +33,26 @@
         <span class="offer-price">{{ product.offerPrice }} $ </span>
       </h2>
       <h2 v-else class="price">{{ product.price }} $</h2>
-      <!-- buttons for sizes -->
-      <h2 v-if="!product.isClothing" class="artist-name" >{{$t('qtyChoose')}} :</h2>
-      <h2 v-else class="artist-name" >{{$t('sizeChoose')}} :</h2>
+      <!-- buttons for sizes or quantity -->
+      <h2 v-if="!product.isClothing" class="artist-name">
+        {{ $t('qtyChoose') }} :
+      </h2>
+      <h2 v-else class="artist-name">{{ $t('sizeChoose') }} :</h2>
 
-      <div  class="button-holder">
-        <button v-for="(size, index) in product.sizes" :key="index" class="size-button">{{ size }}</button>
+      <div class="button-holder">
+        <button
+          v-for="(size, index) in product.sizes"
+          :key="index"
+          class="size-button"
+        >
+          {{ size }}
+        </button>
       </div>
+      <!--  edit and add to cart button -->
+      <button v-if="product.isClothing" class="edit-button">
+        {{ $t('edit') }}
+      </button>
+        <button class="buy-button">{{ $t('addToCart') }}</button>
     </div>
   </section>
 </template>
@@ -46,16 +63,16 @@ export default {
   name: 'ProductPage',
   // fetch data from api
 
-async asyncData(context){
-    const {data} = await context.$axios.get(`${process.env.apiUrl}/products/${context.route.params.id}`)
+  async asyncData(context) {
+    const { data } = await context.$axios.get(
+      `${process.env.apiUrl}/products/${context.route.params.id}`
+    )
     return {
-      product : data
+      product: data,
     }
   },
   data() {
-    return {
-      
-    }
+    return {}
   },
 }
 </script>

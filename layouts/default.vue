@@ -11,14 +11,14 @@
       height="110px"
       fixed
     >
-      <v-layout class="text-headline justify-smAndDown-space-between">
+      <v-layout class="text-headline justify-space-between">
         <!-- Drawer hamburger button for small devices -->
         <v-flex mt-3 class="hidden-md-and-up">
           <button
             class="hamburger"
             d-lg
             :class="{ active: openMenu }"
-            @click="(drawer = !drawer)"
+            @click="drawer = !drawer"
           >
             <span class="line"></span>
             <span class="line"></span>
@@ -56,26 +56,39 @@
             {{ $t('header4') }}
           </nuxt-link>
         </v-flex>
+        
+        <!-- cart button big screen -->
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <nuxt-link :to="localePath('/cart')"> {{ $t('header5') }} </nuxt-link>
-          <font-awesome-icon
-            icon="fa-solid fa-shopping-bag"
-            font-size="1.25em"
-          />
+          <p @click="cartDrawer = !cartDrawer">
+            {{ $t('header5') }}
+            <font-awesome-icon
+              icon="fa-solid fa-shopping-bag"
+              font-size="1.25em"
+            />
+          </p>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <nuxt-link :to="localePath('/profile')">
+          <p @click="cartDrawer = !cartDrawer">
             {{ $t('header6') }}
-          </nuxt-link>
-          <font-awesome-icon
-            icon="fa-solid fa-circle-user"
-            font-size="1.25em"
-          />
+            <font-awesome-icon
+              icon="fa-solid fa-circle-user"
+              font-size="1.25em"
+            />
+          </p>
         </v-flex>
-        <v-flex class="text-center hidden-md-and-up"></v-flex>
+    
+        <!-- cart button small screen -->
+          <v-flex mt-4 class="hidden-md-and-up " style="margin-left:auto" >
+          <button  @click="cartDrawer = !cartDrawer">
+            <font-awesome-icon
+              icon="fa-solid fa-shopping-bag"
+              font-size="1.25em"
+              style="color: white; position: absolute; right: 10;top:20"
+            />
+          </button>
+        </v-flex>
       </v-layout>
     </v-app-bar>
-
     <!-- Navigation drawer for  xs and s devices -->
     <v-navigation-drawer
       v-model="drawer"
@@ -119,17 +132,6 @@
         </v-list-item>
 
         <v-list-item class="drawer-item">
-          <nuxt-link :to="localePath('/cart')"
-            ><v-list-item-content>
-              {{ $t('header5') }}
-            </v-list-item-content></nuxt-link
-          >
-          <v-list-item-avatar>
-            <font-awesome-icon icon="fa-solid fa-bag-shopping" />
-          </v-list-item-avatar>
-        </v-list-item>
-
-        <v-list-item class="drawer-item">
           <nuxt-link :to="localePath('/profile')"
             ><v-list-item-content>
               {{ $t('header6') }}
@@ -141,7 +143,19 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
+    <!-- Cart drawer -->
+    <v-navigation-drawer
+      v-model="cartDrawer"
+      app
+      color="#0f0f0f"
+      dark
+      temporary
+      right
+      style="z-index: 4;"
+      width="25em"
+    >
+      <shopping-cart></shopping-cart>
+    </v-navigation-drawer>
     <!-- The contents of each page, they are generated outside of the layouts -->
     <v-main>
       <Nuxt></Nuxt>
@@ -226,8 +240,10 @@
 </template>
 
 <script>
+import ShoppingCart from '../components/ShoppingCart.vue'
 export default {
   name: 'DefaultLayout',
+  components: { ShoppingCart },
   data() {
     return {
       //  scroll value
@@ -238,8 +254,9 @@ export default {
       routes: ['/', '/products', '/artists', '/about', '/contact'],
       // hamburger menu value
       openMenu: false,
-      // drawer value
+      // drawers values
       drawer: false,
+      cartDrawer: false,
     }
   },
 

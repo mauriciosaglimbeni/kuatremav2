@@ -3,7 +3,7 @@
   "header2": "Tees",
   "header3": "Products",
   "header4": "Artists",
-  "header5": " Bag",
+  "header5": " Shopping Bag",
   "header6": "Profile",
   "footer1": "HOME",
   "footer2": "PRODUCTS",
@@ -20,5 +20,6 @@
   "addToCart": "Add to cart",
   "sizeChoose": "Choose your size",
   "qtyChoose": "Choose the quantity",
-  "return": " < Go back to  all products"
+  "return": " < Go back to  all products",
+  "edit": "Edit product"
 }
