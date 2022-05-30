@@ -56,7 +56,7 @@
             {{ $t('header4') }}
           </nuxt-link>
         </v-flex>
-        
+
         <!-- cart button big screen -->
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
           <p @click="cartDrawer = !cartDrawer">
@@ -76,14 +76,14 @@
             />
           </p>
         </v-flex>
-    
+
         <!-- cart button small screen -->
-          <v-flex mt-4 class="hidden-md-and-up " style="margin-left:auto" >
-          <button  @click="cartDrawer = !cartDrawer">
+        <v-flex mt-4 class="hidden-md-and-up" style="margin-left: auto">
+          <button @click="persist()">
             <font-awesome-icon
               icon="fa-solid fa-shopping-bag"
               font-size="1.25em"
-              style="color: white; position: absolute; right: 10;top:20"
+              style="color: white; position: absolute; right: 10; top: 20"
             />
           </button>
         </v-flex>
@@ -151,10 +151,10 @@
       dark
       temporary
       right
-      style="z-index: 4;"
+      style="z-index: 4"
       width="25em"
     >
-      <shopping-cart></shopping-cart>
+      <shopping-cart :model-value="shoppingCart"> </shopping-cart>
     </v-navigation-drawer>
     <!-- The contents of each page, they are generated outside of the layouts -->
     <v-main>
@@ -257,9 +257,21 @@ export default {
       // drawers values
       drawer: false,
       cartDrawer: false,
+      // cart
+      shoppingCart : []
     }
   },
-
+  // gets the cart from localstorage
+  watch: {
+    shoppingCart: {
+      handler(newValue) {
+        localStorage.setItem('shoppingCart', JSON.stringify(newValue))
+      }
+    },
+  },
+  mounted() {
+    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || "[]" )
+  },
   methods: {
     // go to top methods
     onScroll(e) {
@@ -270,6 +282,10 @@ export default {
     toTop() {
       this.$vuetify.goTo(0)
     },
+    persist(){
+      this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || "[]" );
+      this.cartDrawer = !this.cartDrawer
+    }
   },
 }
 </script>

@@ -44,6 +44,7 @@
           v-for="(size, index) in product.sizes"
           :key="index"
           class="size-button"
+          @click="selectedSize = size"
         >
           {{ size }}
         </button>
@@ -52,7 +53,9 @@
       <button v-if="product.isClothing" class="edit-button">
         {{ $t('edit') }}
       </button>
-        <button class="buy-button">{{ $t('addToCart') }}</button>
+      <button class="buy-button" @click="addToCart(product)">
+        {{ $t('addToCart') }}
+      </button>
     </div>
   </section>
 </template>
@@ -72,7 +75,58 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      // finalprice
+      finalPrice: 0,
+      // size picker
+      selectedSize: String,
+      // cart array
+      shoppingCart: [],
+    }
+  },
+  // saves the cart to localstorage to have it persist in the page
+  watch: {
+    shoppingCart: {
+      handler(newValue) {
+        localStorage.setItem('shoppingCart', JSON.stringify(newValue))
+      },
+      deep: true,
+    },
+  },
+  mounted() {
+    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || '[]')
+  },
+  methods: {
+    //  add element to cart
+    addToCart(product) {
+      let exists = false
+      // sets the final product price checking if it is an offer
+      if (this.isOffer) {
+        this.finalPrice = product.offerPrice
+      } else {
+        this.finalPrice = product.price
+      }
+      // checks if item is already in the cart, if it is updates amount otherwise, adds it to the array
+      for (const cartItem of this.shoppingCart) {
+        if (
+          cartItem.product === product._id &&
+          cartItem.size === this.selectedSize
+        ) {
+          cartItem.amount = cartItem.amount + 1
+          exists = true
+          break
+        }
+      }
+      if (!exists) {
+        this.shoppingCart.push({
+          product: product._id,
+          amount: 1,
+          price: this.finalPrice,
+          img: product.img1,
+          size: this.selectedSize,
+        })
+      }
+    },
   },
 }
 </script>

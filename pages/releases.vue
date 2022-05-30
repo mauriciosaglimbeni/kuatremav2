@@ -21,6 +21,8 @@
           :is-offer="product.isOffer"
           :product-img1="product.img1"
           :product-img2="product.img2"
+          :product-cat="product.category"
+          :sizes="product.sizes"
         ></ProductCard>
       </v-row>
     </v-container>
