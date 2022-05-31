@@ -120,6 +120,7 @@ export default {
       if (!exists) {
         this.shoppingCart.push({
           product: product._id,
+          name: product.productName,
           amount: 1,
           price: this.finalPrice,
           img: product.img1,

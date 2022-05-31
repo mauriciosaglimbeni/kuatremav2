@@ -21,6 +21,8 @@
   "sizeChoose": "Elige tu talla",
   "qtyChoose": "Elige la cantidad",
   "return": " < Volver a todos los productos",
-  "edit": "Editar prenda"
+  "edit": "Editar prenda",
+  "emptyCart": "Tu cesta está vacia!",
+  "checkout": "Proceder a pagar"
   
 }

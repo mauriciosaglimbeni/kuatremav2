@@ -2,15 +2,47 @@
   <!-- Shpping bag contents, drawer is in layout default.vue -->
   <div class="cart-wrapper">
     <h2>{{ $t('header5') }}</h2>
-    <v-list  class="cart-items">
-       <v-list-item v-for="product in modelValue" :key="product" class="cart-items" >
-           <v-list-item-avatar  style="height: 4em; width: 4em">
-               <img :src="product.img" alt="product avatar" style="height: 7em; width: 5em"/>
-           </v-list-item-avatar>
-           <v-list-item-content>
-               <v-list-item-title :v-text="product.name"></v-list-item-title>
-           </v-list-item-content>
-       </v-list-item>
+    <v-list class="cart-items">
+      <v-list-item
+        v-for="product in modelValue"
+        :key="product"
+        class="cart-items"
+      >
+        <v-list-item-avatar style="height: 4em; width: 4em">
+          <img
+            :src="product.img"
+            alt="product avatar"
+            style="height: 7em; width: 5em"
+          />
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>
+            {{ product.name }} - {{ product.size }}
+            <span style="float: right; margin-right: 2px; margin-top: 5px">
+              {{ product.amount }}
+              <v-btn
+                icon
+                style="font-size: 24px; position: relative; bottom: 4px"
+                @click="removeFromCart(product)"
+              >
+                -
+              </v-btn>
+            </span>
+          </v-list-item-title>
+          <v-list-item-content>
+            {{ product.price * product.amount }} $
+          </v-list-item-content>
+        </v-list-item-content>
+      </v-list-item>
+      <!-- If your cart has items, shows you the total and checkout buttons , else it shows you a message-->
+      <div v-if="modelValue.length > 0" style="margin-left:1.5em">
+        <h3>Total: {{totalSum}} $</h3>
+        <br />
+        <v-btn> {{ $t('checkout') }}</v-btn>
+      </div>
+      <v-list-item v-else>
+        <p>{{ $t('emptyCart') }}</p>
+      </v-list-item>
     </v-list>
   </div>
 </template>
@@ -19,19 +51,19 @@
 export default {
   props: ['modelValue'],
 
-//   computed: {
-//     totalSum() {
-//       /// Sums all the prices and returns a TOTAL price
+    computed: {
+      totalSum() {
+        /// Sums all the prices and returns a TOTAL price
 
-//       let sum = 0
+        let sum = 0
 
-//       for (const product of this.modelValue) {
-//         sum += product.price * product.amount
-//       }
+        for (const product of this.modelValue) {
+          sum += product.price * product.amount
+        }
 
-//       return sum
-//     },
-//   },
+        return sum
+      },
+    },
 
   methods: {
     removeFromCart(product) {
@@ -40,7 +72,7 @@ export default {
 
       const shoppingCart = this.modelValue
       const productIndex = shoppingCart.findIndex(
-        (item) => item.uuid === product.uuid
+        (item) => item.product === product.product
       )
 
       shoppingCart[productIndex].amount -= 1
@@ -63,7 +95,7 @@ export default {
   color: white;
   margin: 0.75em;
 }
-.cart-items{
-    height: 7em;
+.cart-items {
+  height: 7em;
 }
 </style>

@@ -21,5 +21,7 @@
   "sizeChoose": "Choose your size",
   "qtyChoose": "Choose the quantity",
   "return": " < Go back to  all products",
-  "edit": "Edit product"
+  "edit": "Edit product",
+  "emptyCart": "Your shopping bag is empty!",
+  "checkout": "Proceed to checkout"
 }
