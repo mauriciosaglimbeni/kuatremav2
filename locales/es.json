@@ -23,6 +23,13 @@
   "return": " < Volver a todos los productos",
   "edit": "Editar prenda",
   "emptyCart": "Tu cesta está vacia!",
-  "checkout": "Proceder a pagar"
+  "checkout": "Proceder al pago",
+  "orderDetails": "Resumen del pedido",
+  "customerData": "Datos personales",
+  "shippingCost": "Gastos de envio",
+  "fullName": "Nombre completo",
+  "email": "Correo electrónico",
+  "phone":"Número telefónico",
+  "address": "Dirección"
   
 }

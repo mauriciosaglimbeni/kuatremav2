@@ -59,7 +59,7 @@
 
         <!-- cart button big screen -->
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <p @click="cartDrawer = !cartDrawer">
+          <p @click=" persist()">
             {{ $t('header5') }}
             <font-awesome-icon
               icon="fa-solid fa-shopping-bag"

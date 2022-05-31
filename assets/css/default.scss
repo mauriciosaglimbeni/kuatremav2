@@ -30,7 +30,7 @@
 
 .logo {
   transition: transform 0.5s;
-  justify-self: center;
+
   margin-bottom: 8px;
   cursor: pointer;
 }
@@ -40,12 +40,12 @@
   transform: scale(1.2, 1.2);
 }
 
-// @media only screen and (max-width: 670px) {
-//   .logo {
-//     justify-self: center;
-//     margin-right: 30px;
-//   }
-// }
+@media only screen and (max-width: 570px) {
+  .logo {
+    justify-self: center;
+    margin-right: 30px;
+  }
+}
 
 // @media only screen and (min-width: 670px) and (max-width: 970px) {
 //   .logo {

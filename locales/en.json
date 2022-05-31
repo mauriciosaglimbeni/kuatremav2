@@ -23,5 +23,12 @@
   "return": " < Go back to  all products",
   "edit": "Edit product",
   "emptyCart": "Your shopping bag is empty!",
-  "checkout": "Proceed to checkout"
+  "checkout": "Proceed to checkout",
+  "orderDetails": "Order details",
+  "customerData": "Personal data",
+  "shippingCost": "Shipping costs",
+  "fullName": "Full name",
+  "email": "E-mail",
+  "phone":"Phone number",
+  "address": "Address"
 }

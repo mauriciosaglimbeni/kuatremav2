@@ -35,10 +35,12 @@
         </v-list-item-content>
       </v-list-item>
       <!-- If your cart has items, shows you the total and checkout buttons , else it shows you a message-->
-      <div v-if="modelValue.length > 0" style="margin-left:1.5em">
-        <h3>Total: {{totalSum}} $</h3>
+      <div v-if="modelValue.length > 0" style="margin-left: 1.5em">
+        <h3>Total: {{ totalSum }} $</h3>
         <br />
-        <v-btn> {{ $t('checkout') }}</v-btn>
+        <nuxt-link :to="localePath('/checkout')">
+          <v-btn> {{ $t('checkout') }}</v-btn>
+        </nuxt-link>
       </div>
       <v-list-item v-else>
         <p>{{ $t('emptyCart') }}</p>
@@ -51,19 +53,19 @@
 export default {
   props: ['modelValue'],
 
-    computed: {
-      totalSum() {
-        /// Sums all the prices and returns a TOTAL price
+  computed: {
+    totalSum() {
+      /// Sums all the prices and returns a TOTAL price
 
-        let sum = 0
+      let sum = 0
 
-        for (const product of this.modelValue) {
-          sum += product.price * product.amount
-        }
+      for (const product of this.modelValue) {
+        sum += product.price * product.amount
+      }
 
-        return sum
-      },
+      return sum.toFixed(2)
     },
+  },
 
   methods: {
     removeFromCart(product) {
