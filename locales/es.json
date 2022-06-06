@@ -20,6 +20,7 @@
   "addToCart": "Añadir a la cesta",
   "sizeChoose": "Elige tu talla",
   "qtyChoose": "Elige la cantidad",
+  "sizeAlert": "Debes elegir una talla o cantidad!",
   "return": " < Volver a todos los productos",
   "edit": "Editar prenda",
   "emptyCart": "Tu cesta está vacia!",
@@ -30,6 +31,8 @@
   "fullName": "Nombre completo",
   "email": "Correo electrónico",
   "phone":"Número telefónico",
-  "address": "Dirección"
+  "address": "Dirección",
+
+  "editProduct": "Customiza tu estilo"
   
 }

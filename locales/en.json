@@ -22,6 +22,7 @@
   "qtyChoose": "Choose the quantity",
   "return": " < Go back to  all products",
   "edit": "Edit product",
+  "sizeAlert": "You must pick a size or quantity!",
   "emptyCart": "Your shopping bag is empty!",
   "checkout": "Proceed to checkout",
   "orderDetails": "Order details",
@@ -30,5 +31,7 @@
   "fullName": "Full name",
   "email": "E-mail",
   "phone":"Phone number",
-  "address": "Address"
+  "address": "Address",
+
+  "editProduct": "Customize your style "
 }

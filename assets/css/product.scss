@@ -43,7 +43,6 @@
 // Item info box
 .information {
     margin-left: 1em;
-    height: 80vh;
     width: 30%;
     position: fixed;
     left: 70%;
@@ -51,13 +50,15 @@
     @media screen and (max-width: 860px) {
         width: 100%;
         position: initial;
-        height: 80vh;
         width: 100%;
+        position: initial;
+        padding-bottom: 7vh;
     }
 
     @media screen and (min-width: 860px) and (max-width: 1400px) {
         left: 60%;
         width: 40%;
+        padding-bottom: 20em;
     }
 
 }
@@ -106,6 +107,8 @@ button {
     text-align: center;
     display: block;
     padding: 6px;
+    height: 2.6em;
+    border-radius: 5px;
     &:hover{
         background-color: black ;
     }

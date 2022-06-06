@@ -59,12 +59,15 @@
 
         <!-- cart button big screen -->
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <p @click=" persist()">
+          <p @click="persist()">
             {{ $t('header5') }}
             <font-awesome-icon
               icon="fa-solid fa-shopping-bag"
               font-size="1.25em"
             />
+            <span style="color: white; font-size: 16px">
+              {{ shoppingCart.length }}
+            </span>
           </p>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
@@ -86,6 +89,17 @@
               style="color: white; position: absolute; right: 10; top: 20"
             />
           </button>
+          <div
+            style="
+              color: white;
+              font-size: 16px;
+              position: absolute;
+              right: 40px;
+              top: 25px;
+            "
+          >
+            {{ shoppingCart.length }}
+          </div>
         </v-flex>
       </v-layout>
     </v-app-bar>
@@ -258,7 +272,7 @@ export default {
       drawer: false,
       cartDrawer: false,
       // cart
-      shoppingCart : []
+      shoppingCart: [],
     }
   },
   // gets the cart from localstorage
@@ -266,11 +280,11 @@ export default {
     shoppingCart: {
       handler(newValue) {
         localStorage.setItem('shoppingCart', JSON.stringify(newValue))
-      }
+      },
     },
   },
   mounted() {
-    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || "[]" )
+    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || '[]')
   },
   methods: {
     // go to top methods
@@ -282,10 +296,12 @@ export default {
     toTop() {
       this.$vuetify.goTo(0)
     },
-    persist(){
-      this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || "[]" );
+    persist() {
+      this.shoppingCart = JSON.parse(
+        localStorage.getItem('shoppingCart') || '[]'
+      )
       this.cartDrawer = !this.cartDrawer
-    }
+    },
   },
 }
 </script>

@@ -49,13 +49,35 @@
           {{ size }}
         </button>
       </div>
-      <!--  edit and add to cart button -->
-      <button v-if="product.isClothing" class="edit-button">
-        {{ $t('edit') }}
-      </button>
+      <!--  edit button with its modal -->
+
+      <v-dialog v-model="dialog" dark width="fit-content">
+        <template #activator="{ on, attrs }">
+          <button
+            v-if="product.isClothing"
+            class="edit-button"
+            v-bind="attrs"
+            v-on="on"
+          >
+            {{ $t('edit') }}
+          </button>
+        </template>
+        <!-- This is the edit modal -->
+        <customize-product :name="product.productName" :img1="product.img1" :img4="product.img4"></customize-product>
+      </v-dialog>
+
       <button class="buy-button" @click="addToCart(product)">
         {{ $t('addToCart') }}
       </button>
+      <!-- If no selected size this appears as in the addToCart method -->
+      <v-alert
+        v-if="alert === true"
+        type="error"
+        dismissible
+        style="width: fit-content; margin-inline: auto"
+      >
+        {{ $t('sizeAlert') }}
+      </v-alert>
     </div>
   </section>
 </template>
@@ -79,9 +101,11 @@ export default {
       // finalprice
       finalPrice: 0,
       // size picker
-      selectedSize: String,
+      selectedSize: '',
+      alert: false,
       // cart array
       shoppingCart: [],
+      editModal: false,
     }
   },
   // saves the cart to localstorage to have it persist in the page
@@ -99,33 +123,40 @@ export default {
   methods: {
     //  add element to cart
     addToCart(product) {
-      let exists = false
-      // sets the final product price checking if it is an offer
-      if (this.isOffer) {
-        this.finalPrice = product.offerPrice
-      } else {
-        this.finalPrice = product.price
-      }
-      // checks if item is already in the cart, if it is updates amount otherwise, adds it to the array
-      for (const cartItem of this.shoppingCart) {
-        if (
-          cartItem.product === product._id &&
-          cartItem.size === this.selectedSize
-        ) {
-          cartItem.amount = cartItem.amount + 1
-          exists = true
-          break
+      //  sets the alert to false so it resets
+      this.alert = false
+      //  if a size has been chosen
+      if (this.selectedSize !== '') {
+        let exists = false
+        // sets the final product price checking if it is an offer
+        if (this.isOffer) {
+          this.finalPrice = product.offerPrice
+        } else {
+          this.finalPrice = product.price
         }
-      }
-      if (!exists) {
-        this.shoppingCart.push({
-          product: product._id,
-          name: product.productName,
-          amount: 1,
-          price: this.finalPrice,
-          img: product.img1,
-          size: this.selectedSize,
-        })
+        // checks if item is already in the cart, if it is updates amount otherwise, adds it to the array
+        for (const cartItem of this.shoppingCart) {
+          if (
+            cartItem.product === product._id &&
+            cartItem.size === this.selectedSize
+          ) {
+            cartItem.amount = cartItem.amount + 1
+            exists = true
+            break
+          }
+        }
+        if (!exists) {
+          this.shoppingCart.push({
+            product: product._id,
+            name: product.productName,
+            amount: 1,
+            price: this.finalPrice,
+            img: product.img1,
+            size: this.selectedSize,
+          })
+        }
+      } else {
+        this.alert = true
       }
     },
   },

@@ -118,7 +118,6 @@ export default {
   & > .details {
     width: 35%;
     position: relative;
-    margin-bottom: 30em;
     @media screen and (max-width: 850px) {
       display: none;
     }
