@@ -33,5 +33,6 @@
   "phone":"Phone number",
   "address": "Address",
 
-  "editProduct": "Customize your style "
+  "editProduct": "Customize your style ",
+  "designWarn": "All designs outside the garment will be ommited in the final product"
 }

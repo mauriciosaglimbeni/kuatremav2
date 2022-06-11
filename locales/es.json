@@ -33,6 +33,7 @@
   "phone":"Número telefónico",
   "address": "Dirección",
 
-  "editProduct": "Customiza tu estilo"
+  "editProduct": "Customiza tu estilo",
+  "designWarn": "Todo diseño fuera de la prenda será omitida en el producto final"
   
 }
