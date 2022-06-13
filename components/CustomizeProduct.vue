@@ -70,8 +70,6 @@ export default {
   data() {
     return {
       viewModel: true,
-      design1: 'background-image: url(' + this.product.des1 + ');',
-      design2: 'background-image: url(' + this.product.des2 + ')',
       capturing: false,
       captured: false,
       imgData: '',
