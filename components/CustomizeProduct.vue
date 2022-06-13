@@ -42,14 +42,22 @@
           <img :src="product.img1" alt="Original product image 1" />
           <img :src="product.img4" alt="Original product image 2" />
         </div>
-        <div v-if="captured" >
+        <div v-if="captured">
           <h5>{{ $t('edited') }}</h5>
-          <div ref="edited" style="height:12em;margin-bottom:5em">
-            <img :src="imgData" alt="edited image goes here" style="height:12em; width:100%" />
+          <div ref="edited" style="height: 12em; margin-bottom: 5em">
+            <img
+              :src="imgData"
+              alt="edited image goes here"
+              style="height: 12em; width: 100%"
+            />
             <p>{{ $t('editFee') }} <b> 3$</b></p>
 
-            <p v-if="product.isOffer">{{$t('price')+":"}} <b>{{product.offerPrice + 3}} $</b></p>
-            <p v-else>{{$t('price')+":"}} <b>{{product.price + 3}} $</b></p>
+            <p v-if="product.isOffer">
+              {{ $t('price') + ':' }} <b>{{ product.offerPrice + 3 }} $</b>
+            </p>
+            <p v-else>
+              {{ $t('price') + ':' }} <b>{{ product.price + 3 }} $</b>
+            </p>
           </div>
         </div>
         <div class="button-holder">
@@ -139,10 +147,7 @@ h5 {
   }
 }
 .design {
-  position: absolute;
   border: none;
-  z-index: 8;
-  background: center / contain no-repeat;
 }
 .options {
   width: auto;
