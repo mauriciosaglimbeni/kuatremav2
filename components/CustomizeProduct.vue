@@ -53,7 +53,7 @@
             <p>{{ $t('editFee') }} <b> 3$</b></p>
 
             <p v-if="product.isOffer">
-              {{ $t('price') + ':' }} <b>{{ product.offerPrice + 3 }} $</b>
+              <!-- {{ $t('price') + ':' }} <b>{{ product.offerPrice + 3 }} $</b> -->
             </p>
             <p v-else>
               {{ $t('price') + ':' }} <b>{{ product.price + 3 }} $</b>
