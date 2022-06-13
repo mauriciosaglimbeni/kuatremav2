@@ -63,7 +63,7 @@
           </button>
         </template>
         <!-- This is the edit modal -->
-        <customize-product :name="product.productName" :img1="product.img1" :img4="product.img4" :des1="product.des1" :des2="product.des2"></customize-product>
+        <customize-product :product="product"></customize-product>
       </v-dialog>
 
       <button class="buy-button" @click="addToCart(product)">

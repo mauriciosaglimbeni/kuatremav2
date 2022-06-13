@@ -34,5 +34,8 @@
   "address": "Address",
 
   "editProduct": "Customize your style ",
-  "designWarn": "All designs outside the garment will be ommited in the final product"
+  "designWarn": "All designs outside the garment will be ommited in the final product",
+  "confirmEdit": "Confirm customization",
+  "edited": "CUSTOMIZED",
+  "editFee": "Customizing fee: "
 }

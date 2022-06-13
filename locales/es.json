@@ -34,6 +34,9 @@
   "address": "Dirección",
 
   "editProduct": "Customiza tu estilo",
-  "designWarn": "Todo diseño fuera de la prenda será omitida en el producto final"
+  "designWarn": "Todo diseño fuera de la prenda será omitida en el producto final",
+  "confirmEdit": "Confirmar edición",
+  "edited": "EDITADO",
+  "editFee": "Coste de edición: "
   
 }

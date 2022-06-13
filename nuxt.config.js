@@ -17,6 +17,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -25,7 +26,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins:
     ['~/plugins/fontawesome.js',
-      '~/plugins/draggable-sizable.js'
+      '~/plugins/draggable-sizable.js',
+      { src: '~/plugins/dom-to-image-more.js', mode: 'client' },
+      
     ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -116,7 +119,7 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-
+    transpile: ['dom-to-image-more.js']
   },
   //  get env variables for api url
   env: {
