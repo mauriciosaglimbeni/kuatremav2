@@ -87,9 +87,6 @@ export default {
       this.$domtoimage
         .toPng(editedProduct)
         .then((dataUrl) => {
-          // const img = new Image()
-          // img.src = dataUrl
-          console.log(dataUrl)
           this.imgData = dataUrl
           this.capturing = false
         })
