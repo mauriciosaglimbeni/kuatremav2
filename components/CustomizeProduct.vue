@@ -44,10 +44,12 @@
         </div>
         <div v-if="captured" >
           <h5>{{ $t('edited') }}</h5>
-          <div ref="edited" style="height:12em;margin-bottom:2em">
+          <div ref="edited" style="height:12em;margin-bottom:5em">
             <img :src="imgData" alt="edited image goes here" style="height:12em; width:100%" />
-            <p>{{ $t('editFee') }} <b>2.99$</b></p>
-  
+            <p>{{ $t('editFee') }} <b> 3$</b></p>
+
+            <p v-if="product.isOffer">{{$t('price')+":"}} <b>{{product.offerPrice + 3}} $</b></p>
+            <p v-else>{{$t('price')+":"}} <b>{{product.price + 3}} $</b></p>
           </div>
         </div>
         <div class="button-holder">

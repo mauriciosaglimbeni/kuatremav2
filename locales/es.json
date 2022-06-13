@@ -10,12 +10,14 @@
   "footer3": "ARTISTAS",
   "footer4": "SOBRE NOSOTROS",
   "footer5": "CONTÁCTANOS",
+  
   "player": "Ver Ahora",
   "featTitle1": "NOVEDADES",
   "featTitle2": "OFERTAS",
   "featAction": "Ver todo",
   "offers": "Ofertas",
   "releases": "Novedades",
+
   "accesories": "Accesorios",
   "addToCart": "Añadir a la cesta",
   "sizeChoose": "Elige tu talla",
@@ -25,6 +27,7 @@
   "edit": "Editar prenda",
   "emptyCart": "Tu cesta está vacia!",
   "checkout": "Proceder al pago",
+
   "orderDetails": "Resumen del pedido",
   "customerData": "Datos personales",
   "shippingCost": "Gastos de envio",
@@ -37,6 +40,7 @@
   "designWarn": "Todo diseño fuera de la prenda será omitida en el producto final",
   "confirmEdit": "Confirmar edición",
   "edited": "EDITADO",
-  "editFee": "Coste de edición: "
+  "editFee": "Coste de edición: ",
+  "price": "Precio"
   
 }

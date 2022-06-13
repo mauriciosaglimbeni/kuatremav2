@@ -10,6 +10,7 @@
   "footer3": "ARTISTS",
   "footer4": "ABOUT US",
   "footer5": "CONTACT",
+
   "player": "Watch Now",
   "featTitle1": "NEW RELEASES",
   "featTitle2": "OFFERS",
@@ -17,6 +18,7 @@
   "offers": "Offers",
   "releases": "Fresh",
   "accesories": "Accesories",
+  
   "addToCart": "Add to cart",
   "sizeChoose": "Choose your size",
   "qtyChoose": "Choose the quantity",
@@ -25,6 +27,7 @@
   "sizeAlert": "You must pick a size or quantity!",
   "emptyCart": "Your shopping bag is empty!",
   "checkout": "Proceed to checkout",
+
   "orderDetails": "Order details",
   "customerData": "Personal data",
   "shippingCost": "Shipping costs",
@@ -32,10 +35,11 @@
   "email": "E-mail",
   "phone":"Phone number",
   "address": "Address",
-
+  
   "editProduct": "Customize your style ",
   "designWarn": "All designs outside the garment will be ommited in the final product",
   "confirmEdit": "Confirm customization",
   "edited": "CUSTOMIZED",
-  "editFee": "Customizing fee: "
+  "editFee": "Customizing fee: ",
+  "price": "Price"
 }
