@@ -53,7 +53,7 @@
             <p>{{ $t('editFee') }} <b> 3$</b></p>
 
             <p v-if="product.isOffer">
-              <!-- {{ $t('price') + ':' }} <b>{{ product.offerPrice + 3 }} $</b> -->
+              {{ $t('price') + ':' }} <b>{{ product.offerPrice + 3 }} $</b>
             </p>
             <p v-else>
               {{ $t('price') + ':' }} <b>{{ product.price + 3 }} $</b>
@@ -130,7 +130,7 @@ h5 {
 .editor {
   border: rgba(0, 0, 0, 0.263) 3px solid;
   background-color: rgba(179, 238, 246, 0.464);
-  height: fit-content;
+  height: 30em;
   width: 65em;
   margin-right: 1em;
   position: relative;
