@@ -7,7 +7,6 @@ const config = require('../config')
 // User registration
 module.exports.register = [
   // validations rules
-  validator.body('full_name', 'Please enter your name').isLength({ min: 1 }),
   validator.body('email', 'Please enter your email').isLength({ min: 1 }),
   validator.body('email').custom((value) => {
     return User.findOne({ email: value }).then((user) => {
@@ -26,7 +25,6 @@ module.exports.register = [
     }
     // initialize record
     const user = new User({
-      full_name: req.body.full_name,
       email: req.body.email,
       password: req.body.password,
     })
@@ -83,10 +81,10 @@ module.exports.login = [
               user: {
                 _id: user._id,
                 email: user.email,
-                full_name: user.full_name,
+
               },
               token: jwt.sign(
-                { _id: user._id, email: user.email, full_name: user.full_name },
+                { _id: user._id, email: user.email },
                 config.authSecret
               ), // generate JWT token here
             })

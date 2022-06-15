@@ -41,6 +41,19 @@
   "confirmEdit": "Confirmar edición",
   "edited": "EDITADO",
   "editFee": "Coste de edición: ",
-  "price": "Precio"
+  "price": "Precio",
+
+  "noAccount": "No tienes una cuenta? Regístrate ahora!",
+  "hasAccount": "Ya tienes una cuenta? Inicia sesión ahora!",
+  "register": "Registrarse",
+  "login": "Iniciar sesión",
+  "password": "Contraseña",
+  "repeatPassword": "Repetir contraseña",
+  "matchPassword": "Las contraseñas son distintas",
+  "yourProfile": "Tu Perfil",
+  "orders": "Pedidos",
+  "wishlist": "Lista de deseados",
+  "pointShop": "Tienda de Puntos",
+  "logout": "Cerrar sesión"
   
 }

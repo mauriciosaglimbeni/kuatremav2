@@ -41,5 +41,19 @@
   "confirmEdit": "Confirm customization",
   "edited": "CUSTOMIZED",
   "editFee": "Customizing fee: ",
-  "price": "Price"
+  "price": "Price",
+
+  "noAccount": "No account? Sing up now!",
+  "hasAccount": "Already have an account? Log in now!",
+  "register": "Registration",
+  "login": "Log In",
+  "password": "Password",
+  "repeatPassword": "Repeat password",
+  "matchPassword": "Passwords don't match",
+  "yourProfile": "Your Profile",
+  "orders": "Orders",
+  "wishlist": "Wishlist",
+  "pointShop": "Point Shop",
+  "logout": "Log Out"
+  
 }

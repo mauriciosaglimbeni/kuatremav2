@@ -71,7 +71,12 @@
           </p>
         </v-flex>
         <v-flex mt-5 class="text-center cat cat2 hidden-sm-and-down">
-          <p @click="cartDrawer = !cartDrawer">
+          <p
+            @click="
+              userDrawer = !userDrawer
+          
+            "
+          >
             {{ $t('header6') }}
             <font-awesome-icon
               icon="fa-solid fa-circle-user"
@@ -145,12 +150,16 @@
           >
         </v-list-item>
 
-        <v-list-item class="drawer-item">
-          <nuxt-link :to="localePath('/profile')"
-            ><v-list-item-content>
-              {{ $t('header6') }}
-            </v-list-item-content></nuxt-link
-          >
+        <v-list-item
+          class="drawer-item"
+          @click="
+            userDrawer = !userDrawer
+  
+          "
+        >
+          <v-list-item-content>
+            {{ $t('header6') }}
+          </v-list-item-content>
           <v-list-item-avatar>
             <font-awesome-icon icon="fa-solid fa-circle-user" />
           </v-list-item-avatar>
@@ -169,6 +178,20 @@
       width="25em"
     >
       <shopping-cart :model-value="shoppingCart"> </shopping-cart>
+    </v-navigation-drawer>
+    <!-- USER DRAWER -->
+    <v-navigation-drawer
+      v-model="userDrawer"
+      app
+      color="#0f0f0f"
+      dark
+      temporary
+      right
+      style="z-index: 4"
+      width="fit-content"
+    >
+      <user-area></user-area>
+      <!-- <user-area :logged="logged" @updateLogged="logged = !logged"></user-area> -->
     </v-navigation-drawer>
     <!-- The contents of each page, they are generated outside of the layouts -->
     <v-main>
@@ -255,9 +278,10 @@
 
 <script>
 import ShoppingCart from '../components/ShoppingCart.vue'
+import UserArea from '../components/UserArea.vue'
 export default {
   name: 'DefaultLayout',
-  components: { ShoppingCart },
+  components: { ShoppingCart, UserArea },
   data() {
     return {
       //  scroll value
@@ -268,11 +292,14 @@ export default {
       routes: ['/', '/products', '/artists', '/about', '/contact'],
       // hamburger menu value
       openMenu: false,
-      // drawers values
+      // drawers and modals values
       drawer: false,
       cartDrawer: false,
+      userDrawer: false,
       // cart
       shoppingCart: [],
+      // login conf
+      // logged: false
     }
   },
   // gets the cart from localstorage
@@ -302,7 +329,17 @@ export default {
       )
       this.cartDrawer = !this.cartDrawer
     },
+    // checks if the user is logged in
+    // checkLogin() {
+    //   if (this.$store.state.auth.loggedIn) {
+    //     this.logged = true
+    //   }else{
+    //     this.logged = false
+    //     this.$nuxt.$options.router.push(`/`)
+    //   }
+    // },
   },
 }
 </script>
-<style lang="scss" src="../assets/css/default.scss"></style>
+<style lang="scss" src="../assets/css/default.scss">
+</style>
