@@ -93,13 +93,13 @@ export default {
         endpoints: {
           // these are the API endpoints we created in Express
           login: {
-            url: `${process.env.apiUrl}/users/login`,
+            url: `/users/login`,
             method: 'post',
             propertyName: 'token'
           },
-          logout: true,
+          // logout: true,
           user: {
-            url: `${process.env.apiUrl}/users/user`,
+            url: `/users/user`,
             method: 'get',
             propertyName: 'user'
           }
