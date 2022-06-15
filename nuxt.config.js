@@ -93,13 +93,13 @@ export default {
         endpoints: {
           // these are the API endpoints we created in Express
           login: {
-            url: `/users/login`,
+            url: `api/users/login`,
             method: 'post',
             propertyName: 'token'
           },
           // logout: true,
           user: {
-            url: `/users/user`,
+            url: `api/users/user`,
             method: 'get',
             propertyName: 'user'
           }

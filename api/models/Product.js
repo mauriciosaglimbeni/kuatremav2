@@ -22,6 +22,8 @@ const Product = new Schema({
   img4: {type: String},
   design1: { type: String, required: true },
   design2: { type: String },
+  base1: { type: String, required: true },
+  base2: { type: String, required: true },
   // date for filtering
   date: { type: Date, required: true, default: Date.now() },
 });

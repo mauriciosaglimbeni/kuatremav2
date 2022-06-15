@@ -146,15 +146,7 @@ export default {
       } else {
         this.finalPrice = this.product.price + 3
       }
-      // we add the custom element to the cart
-      // this.shoppingCart.push({
-      //   product: num,
-      //   name: this.finalName,
-      //   amount: 1,
-      //   price: this.finalPrice,
-      //   img: this.product.img1,
-      //   size: this.selectedSize,
-      // })
+      // adding the product to cart by accessing the method in the parent
       this.addToCartFunc(num,this.finalName,this.finalPrice,this.product.img1,this.selectedSize)
       // we add it to the db
       this.$axios
