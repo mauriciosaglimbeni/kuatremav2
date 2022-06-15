@@ -1,4 +1,5 @@
 const { Router } = require('express')
+// const config = require('../config')
 
 const router = Router({ mergeParams: true })
 // Initialize Controller
@@ -17,5 +18,8 @@ router.get('/sweats', productsController.listSweat)
 router.get('/tees', productsController.listTee)
 // get accesories
 router.get('/accesories', productsController.listAcc)
-
+// Create
+router.post('/products', productsController.create)
+// Update
+router.put('/products/:id', productsController.update)
 module.exports = router
