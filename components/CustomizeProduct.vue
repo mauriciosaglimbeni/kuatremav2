@@ -23,13 +23,13 @@
         <div class="mock">
           <img
             src="https://kuatrema.sirv.com/white-sw-1.png"
-            style="width: 90%; height: auto"
+            style="width: 100%; height: 95%"
           />
         </div>
         <div class="mock">
           <img
             src="https://kuatrema.sirv.com/white-sw-2.png"
-            style="width: 90%; height: auto"
+            style="width: 100%; height: 95%"
           />
         </div>
       </div>
@@ -60,11 +60,22 @@
             </p>
           </div>
         </div>
+        <h4 v-else class="artist-name">{{ $t('sizeChoose') }} :</h4>
+        <div class="size-holder">
+          <button
+            v-for="(size, index) in product.sizes"
+            :key="index"
+            class="size-button"
+            @click="selectedSize = size"
+          >
+            {{ size }}
+          </button>
+        </div>
         <div class="button-holder">
           <button :disabled="capturing" @click="createImage()">
             {{ $t('confirmEdit') }}
           </button>
-          <button v-if="captured" @click="createImage()">
+          <button v-if="captured" @click="createCustomProduct()">
             {{ $t('addToCart') }}
           </button>
         </div>
@@ -74,13 +85,18 @@
 </template>
 <script>
 export default {
-  props: ['product'],
+  props: ['product', 'addToCartFunc'],
   data() {
     return {
       viewModel: true,
       capturing: false,
       captured: false,
       imgData: '',
+      selectedSize: String,
+      finalPrice: 0,
+      finalName: '',
+      newId: '',
+      shoppingCart: [],
     }
   },
 
@@ -105,6 +121,77 @@ export default {
         })
       return this.imgData
     },
+    // saves the cart to localstorage to have it persist in the page
+    watch: {
+      shoppingCart: {
+        handler(newValue) {
+          localStorage.setItem('shoppingCart', JSON.stringify(newValue))
+        },
+        deep: true,
+      },
+    },
+    mounted() {
+      this.shoppingCart = JSON.parse(
+        localStorage.getItem('shoppingCart') || '[]'
+      )
+    },
+
+    // Method to create a custom product and upload it to the database
+    createCustomProduct() {
+      const num = Math.floor(Math.random() * 999999)
+      this.newId = num.toString()
+      this.finalName = 'CUSTOM - ' + this.product.productName
+      if (this.product.isOffer) {
+        this.finalPrice = this.product.offerPrice + 3
+      } else {
+        this.finalPrice = this.product.price + 3
+      }
+      // we add the custom element to the cart
+      // this.shoppingCart.push({
+      //   product: num,
+      //   name: this.finalName,
+      //   amount: 1,
+      //   price: this.finalPrice,
+      //   img: this.product.img1,
+      //   size: this.selectedSize,
+      // })
+      this.addToCartFunc(num,this.finalName,this.finalPrice,this.product.img1,this.selectedSize)
+      // we add it to the db
+      this.$axios
+        .post('/api/customProducts', {
+          productId: this.newId,
+          productName: this.finalName,
+          price: this.finalPrice,
+          mock1: this.product.img1,
+          img1: {
+            data: this.imgData,
+            contentType: 'image/png',
+          },
+        })
+        .then((response) => {
+          console.log(response)
+          // redirects if correct
+          this.$nuxt.$options.router.push(`/products/${this.product._id}`)
+        })
+        .catch((error) => {
+          console.log(error)
+          if (error.response.data.errors) {
+            this.errors = error.response.data.errors
+            console.log(this.errors)
+          }
+        })
+    },
+    //  add element to cart
+    // addToCart() {
+    //   this.shoppingCart.push({
+    //     product: this.newId,
+    //     name: this.finalName,
+    //     amount: 1,
+    //     price: this.finalPrice,
+    //     img: this.product.img1,
+    //     size: this.selectedSize,
+    //   })
+    // },
   },
 }
 </script>
@@ -130,7 +217,7 @@ h5 {
 .editor {
   border: rgba(0, 0, 0, 0.263) 3px solid;
   background-color: rgba(179, 238, 246, 0.464);
-  height: 30em;
+  height: 35em;
   width: 65em;
   margin-right: 1em;
   position: relative;
@@ -178,6 +265,23 @@ button {
   color: white;
   &:hover {
     background-color: black;
+  }
+}
+.size-holder {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+}
+.size-button {
+  background-color: rgb(255, 251, 251);
+  color: black;
+
+  &:hover,
+  &:focus {
+    background-color: rgb(0, 0, 0);
+    color: white;
   }
 }
 </style>

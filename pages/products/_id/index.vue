@@ -63,7 +63,7 @@
           </button>
         </template>
         <!-- This is the edit modal -->
-        <customize-product :product="product"></customize-product>
+        <customize-product :product="product" :add-to-cart-func="addCustomtoCart"></customize-product>
       </v-dialog>
 
       <button class="buy-button" @click="addToCart(product)">
@@ -158,6 +158,17 @@ export default {
       } else {
         this.alert = true
       }
+    },
+    addCustomtoCart(id,pName,pPrice,pImg,pSize) {
+      this.shoppingCart.push({
+        product: id,
+        name: pName,
+        amount: 1,
+        price: pPrice,
+        img: pImg,
+        size: pSize,
+      })
+      console.log(this.shoppingCart)
     },
   },
 }
