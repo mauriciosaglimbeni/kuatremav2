@@ -158,7 +158,7 @@ export default {
       this.addToCartFunc(num,this.finalName,this.finalPrice,this.product.img1,this.selectedSize)
       // we add it to the db
       this.$axios
-        .post('/api/customProducts', {
+        .post(`${process.env.apiUrl}/customProducts`, {
           productId: this.newId,
           productName: this.finalName,
           price: this.finalPrice,

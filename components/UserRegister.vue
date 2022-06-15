@@ -59,7 +59,7 @@ export default {
     async register() {
       if (this.registerData.password === this.registerData.repeatPassword) {
         try {
-          const user = await this.$axios.$post('/api/users/register   ', {
+          const user = await this.$axios.$post(`${process.env.apiUrl}/users/register`, {
             fullname: this.registerData.fullname,
             email: this.registerData.email,
             password: this.registerData.password,
