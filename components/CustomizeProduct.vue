@@ -22,13 +22,13 @@
 
         <div class="mock">
           <img
-            src="https://kuatrema.sirv.com/white-sw-1.png"
+            :src="product.base1"
             style="width: 100%; height: 95%"
           />
         </div>
         <div class="mock">
           <img
-            src="https://kuatrema.sirv.com/white-sw-2.png"
+            :src="product.base2"
             style="width: 100%; height: 95%"
           />
         </div>
